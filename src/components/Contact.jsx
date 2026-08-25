@@ -22,7 +22,7 @@ function Contact() {
 
             <div>
               <h3>Email</h3>
-              <p>yashodhikaushallya@gmail.com</p>
+              <p>yasodhikaushallya@gmail.com</p>
             </div>
           </a>
 
