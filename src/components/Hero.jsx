@@ -26,6 +26,15 @@ function Hero() {
           >
             GitHub
           </a>
+
+<a
+  href="/KaushallyaCV.pdf"
+  download="Yashodhi-Kaushallya-CV.pdf"
+  className="btn secondary-btn"
+>
+  Download CV
+</a>
+
         </div>
       </div>
     </section>
