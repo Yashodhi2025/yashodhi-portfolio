@@ -44,32 +44,6 @@ function Hero({ onNavigate }) {
             </a>
           </div>
 
-          {/* Social Links */}
-          <div className="hero-socials">
-            <a
-              href="https://github.com/Yashodhi2025"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-
-            <span>•</span>
-
-            <a
-              href="https://www.linkedin.com/in/yashodhi-kaushallya-352173316/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-
-            <span>•</span>
-
-            <a href="/contact" onClick={(event) => handleNavigation(event, '/contact')}>
-              Contact Me
-            </a>
-          </div>
         </div>
 
         {/* Right Side - Developer Girl */}
@@ -103,11 +77,7 @@ function Hero({ onNavigate }) {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="hero-scroll">
-        <span></span>
-        Scroll to explore
-      </div>
+    
     </section>
   );
 }

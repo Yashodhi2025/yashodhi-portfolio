@@ -10,6 +10,11 @@ function Education() {
 
         <div className="education-card">
           <div className="education-year">
+            <img
+              className="education-logo"
+              src="/img-01.png"
+              alt="SLIIT logo"
+            />
             2024 – Present
           </div>
 
@@ -28,6 +33,31 @@ function Education() {
               Currently pursuing my undergraduate degree with a focus on
               software engineering, application development, and modern
               software technologies.
+            </p>
+          </div>
+        </div>
+
+        <div className="education-card">
+          <div className="education-year">
+            <img
+              className="education-logo"
+              src="/images%20(2).jpg"
+              alt="Anula Vidyalaya logo"
+            />
+            2020
+          </div>
+
+          <div className="education-details">
+            <h3>Anula Vidyalaya</h3>
+
+            <h4>G.C.E. Advanced Level</h4>
+
+            <p className="education-institute">
+              Anula Vidyalaya
+            </p>
+
+            <p className="education-description">
+              Completed my G.C.E. Advanced Level studies at Anula Vidyalaya.
             </p>
           </div>
         </div>

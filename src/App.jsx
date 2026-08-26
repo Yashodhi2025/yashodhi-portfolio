@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <Navbar onNavigate={navigate} />
+      <Navbar onNavigate={navigate} currentPath={path} />
       <main className="page-main"><CurrentPage onNavigate={navigate} /></main>
       <Footer />
     </>

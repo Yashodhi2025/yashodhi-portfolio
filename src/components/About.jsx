@@ -5,7 +5,7 @@ function About() {
 
         {/* ABOUT HEADER */}
         <div className="about-header">
-          <p className="section-label">ABOUT ME</p>
+          <p className="section-label">About Me</p>
 
           <h2 className="section-title">
             Turning ideas into{" "}

@@ -1,4 +1,13 @@
-function Navbar({ onNavigate }) {
+function Navbar({ onNavigate, currentPath }) {
+  const links = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Skills', path: '/skills' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Education', path: '/education' },
+    { label: 'Contact', path: '/contact' },
+  ];
+
   const handleNavigation = (event, path) => {
     event.preventDefault();
     onNavigate(path);
@@ -11,13 +20,18 @@ function Navbar({ onNavigate }) {
           YK
         </a>
 
-        <nav className="nav-links">
-          <a href="/" onClick={(event) => handleNavigation(event, '/')}>Home</a>
-          <a href="/about" onClick={(event) => handleNavigation(event, '/about')}>About</a>
-          <a href="/skills" onClick={(event) => handleNavigation(event, '/skills')}>Skills</a>
-          <a href="/projects" onClick={(event) => handleNavigation(event, '/projects')}>Projects</a>
-          <a href="/education" onClick={(event) => handleNavigation(event, '/education')}>Education</a>
-          <a href="/contact" onClick={(event) => handleNavigation(event, '/contact')}>Contact</a>
+        <nav className="nav-links" aria-label="Main navigation">
+          {links.map(({ label, path }) => (
+            <a
+              key={path}
+              href={path}
+              className={currentPath === path ? 'active' : ''}
+              aria-current={currentPath === path ? 'page' : undefined}
+              onClick={(event) => handleNavigation(event, path)}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
