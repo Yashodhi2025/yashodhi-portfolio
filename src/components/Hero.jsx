@@ -1,4 +1,9 @@
-function Hero() {
+function Hero({ onNavigate }) {
+  const handleNavigation = (event, path) => {
+    event.preventDefault();
+    onNavigate(path);
+  };
+
   return (
     <section id="home" className="hero">
       {/* Background Glow */}
@@ -26,7 +31,7 @@ function Hero() {
 
           {/* Buttons */}
           <div className="hero-buttons">
-            <a href="#projects" className="btn primary-btn">
+            <a href="/projects" className="btn primary-btn" onClick={(event) => handleNavigation(event, '/projects')}>
               View My Projects <span>→</span>
             </a>
 
@@ -61,7 +66,7 @@ function Hero() {
 
             <span>•</span>
 
-            <a href="#contact">
+            <a href="/contact" onClick={(event) => handleNavigation(event, '/contact')}>
               Contact Me
             </a>
           </div>

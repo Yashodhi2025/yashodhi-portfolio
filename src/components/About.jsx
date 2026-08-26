@@ -3,7 +3,7 @@ function About() {
     <section id="about" className="about section">
       <div className="section-container">
 
-        {/* Section Header */}
+        {/* ABOUT HEADER */}
         <div className="about-header">
           <p className="section-label">ABOUT ME</p>
 
@@ -13,10 +13,10 @@ function About() {
           </h2>
         </div>
 
-        {/* About Content */}
+        {/* ABOUT CONTENT */}
         <div className="about-content">
 
-          {/* Left - Description */}
+          {/* LEFT SIDE */}
           <div className="about-text">
 
             <p>
@@ -28,9 +28,8 @@ function About() {
             <p>
               I enjoy designing and developing practical software solutions
               that solve real-world problems. Through academic and group
-              projects, I have gained hands-on experience with{" "}
-              <strong>React.js, Node.js, Express.js, MongoDB, REST APIs,</strong>{" "}
-              and <strong>microservices.</strong>
+              projects, I have gained hands-on experience with React.js,
+              Node.js, Express.js, MongoDB, REST APIs, and microservices.
             </p>
 
             <p>
@@ -41,52 +40,71 @@ function About() {
 
             <div className="about-line"></div>
 
-            <p className="about-note">
-              <span>✨</span> Always learning. Always building. Always improving.
-            </p>
+            <div className="about-note">
+              <span>✦</span>
+              Always learning. Always building.
+            </div>
 
           </div>
 
-          {/* Right - Highlights */}
-          <div className="about-highlights">
+          {/* RIGHT SIDE */}
+          <div className="about-right">
 
-            <div className="highlight-card">
-              <span className="highlight-icon">🎓</span>
+            {/* SMALL IMAGE */}
+            <div className="about-image">
+              <img
+                src="/about-imagee.jpg"
+                alt="About me"
+              />
+            </div>
 
-              <div>
+            {/* HIGHLIGHTS */}
+            <div className="about-highlights">
+
+              <div className="highlight-card">
+                <span className="highlight-icon">🎓</span>
+
                 <h3>Education</h3>
-                <p>Software Engineering Undergraduate</p>
+
+                <p>
+                  Software Engineering Undergraduate
+                </p>
               </div>
-            </div>
 
-            <div className="highlight-card">
-              <span className="highlight-icon">💻</span>
+              <div className="highlight-card">
+                <span className="highlight-icon">💻</span>
 
-              <div>
                 <h3>Focus</h3>
-                <p>Full-Stack & Backend Development</p>
+
+                <p>
+                  Full-Stack & Backend Development
+                </p>
               </div>
-            </div>
 
-            <div className="highlight-card">
-              <span className="highlight-icon">🚀</span>
+              <div className="highlight-card">
+                <span className="highlight-icon">🚀</span>
 
-              <div>
                 <h3>Approach</h3>
-                <p>Practical & User-Focused Solutions</p>
+
+                <p>
+                  Practical & User-Focused Solutions
+                </p>
               </div>
-            </div>
 
-            <div className="highlight-card">
-              <span className="highlight-icon">🌱</span>
+              <div className="highlight-card">
+                <span className="highlight-icon">🌱</span>
 
-              <div>
                 <h3>Learning</h3>
-                <p>Always Exploring New Technologies</p>
+
+                <p>
+                  Always Exploring New Technologies
+                </p>
               </div>
+
             </div>
 
           </div>
+
         </div>
       </div>
     </section>
