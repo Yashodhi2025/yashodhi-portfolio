@@ -29,7 +29,7 @@ function Projects() {
         '/projects/medisync/BookingSuccess.jpeg',
         
       ],
-      featured: true,
+      featured: false,
     },
 
     {
@@ -48,6 +48,7 @@ function Projects() {
       ],
       date: 'Feb 2026 – Apr 2026',
       github: 'https://github.com/nimnadee-203/GreenRent',
+      liveDemo: 'https://greenrent-frontend.onrender.com/',
       images: [
         '/projects/greenrent/home.png',
         '/projects/greenrent/apartments.png',
@@ -224,14 +225,27 @@ function Projects() {
                   ))}
                 </div>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  View project <span aria-hidden="true">↗</span>
-                </a>
+                <div className="project-links">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+
+                  {project.liveDemo && (
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link project-demo-link"
+                    >
+                      Live demo <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
