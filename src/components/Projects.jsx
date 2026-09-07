@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function Projects() {
+  const [currentImages, setCurrentImages] = useState({});
+
   const projects = [
     {
       title: 'MediSync',
@@ -17,8 +21,17 @@ function Projects() {
       ],
       date: 'Mar 2026 – Apr 2026',
       github: 'https://github.com/nimnadee-203/MediSync',
+      images: [
+        '/projects/medisync/SearchDoctor.jpeg',
+        '/projects/medisync/telemedicine.jpeg',
+        '/projects/medisync/DoctorDashboard.jpeg',
+        '/projects/medisync/paymentGateway.jpeg',
+        '/projects/medisync/BookingSuccess.jpeg',
+        
+      ],
       featured: true,
     },
+
     {
       title: 'GreenRent',
       subtitle: 'Sustainable Apartment Finder',
@@ -35,8 +48,15 @@ function Projects() {
       ],
       date: 'Feb 2026 – Apr 2026',
       github: 'https://github.com/nimnadee-203/GreenRent',
+      images: [
+        '/projects/greenrent/home.png',
+        '/projects/greenrent/apartments.png',
+        '/projects/greenrent/apartmentDetails.png',
+        '/projects/greenrent/booking.png',
+      ],
       featured: false,
     },
+
     {
       title: 'Ceylon Eco Foods',
       subtitle: 'Food Processing Factory Management System',
@@ -53,9 +73,38 @@ function Projects() {
       ],
       date: 'Jul 2025 – Sep 2025',
       github: 'https://github.com/nimnadee-203/Ceylon-Eco-Foods',
+      images: [
+        '/projects/ceylon-eco-foods/ClientDashboard.jpeg',
+        '/projects/ceylon-eco-foods/AdminDashboard.jpeg',
+        '/projects/ceylon-eco-foods/InventoryManagement.jpeg',
+        '/projects/ceylon-eco-foods/driverManagement.jpeg',
+      ],
       featured: false,
     },
   ];
+
+  const nextImage = (projectTitle, imageCount) => {
+    setCurrentImages((prev) => {
+      const currentIndex = prev[projectTitle] || 0;
+
+      return {
+        ...prev,
+        [projectTitle]: (currentIndex + 1) % imageCount,
+      };
+    });
+  };
+
+  const previousImage = (projectTitle, imageCount) => {
+    setCurrentImages((prev) => {
+      const currentIndex = prev[projectTitle] || 0;
+
+      return {
+        ...prev,
+        [projectTitle]:
+          (currentIndex - 1 + imageCount) % imageCount,
+      };
+    });
+  };
 
   return (
     <section id="projects" className="projects section">
@@ -74,14 +123,87 @@ function Projects() {
               }`}
               key={project.title}
             >
-              <div className="project-info">
-                {project.featured && (
-                  <span className="featured-label">
-                    FEATURED PROJECT
-                  </span>
+              {/* Project Image Carousel */}
+              <div className="project-image-carousel">
+                <img
+                  src={
+                    project.images[
+                      currentImages[project.title] || 0
+                    ]
+                  }
+                  alt={`${project.title} screenshot`}
+                  className="project-image"
+                />
+
+                {project.images.length > 1 && (
+                  <>
+                    <button
+                      className="carousel-arrow carousel-arrow-left"
+                      onClick={() =>
+                        previousImage(
+                          project.title,
+                          project.images.length
+                        )
+                      }
+                      aria-label="Previous image"
+                    >
+                      ←
+                    </button>
+
+                    <button
+                      className="carousel-arrow carousel-arrow-right"
+                      onClick={() =>
+                        nextImage(
+                          project.title,
+                          project.images.length
+                        )
+                      }
+                      aria-label="Next image"
+                    >
+                      →
+                    </button>
+                  </>
                 )}
 
-                <p className="project-date">{project.date}</p>
+                {project.images.length > 1 && (
+                  <div className="carousel-counter">
+                    {(currentImages[project.title] || 0) + 1} /{' '}
+                    {project.images.length}
+                  </div>
+                )}
+
+                {project.images.length > 1 && (
+                  <div className="carousel-dots">
+                    {project.images.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`carousel-dot ${
+                          (currentImages[project.title] || 0) ===
+                          index
+                            ? 'active'
+                            : ''
+                        }`}
+                        onClick={() =>
+                          setCurrentImages((prev) => ({
+                            ...prev,
+                            [project.title]: index,
+                          }))
+                        }
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Project Information */}
+              <div className="project-info">
+                <div className="project-meta">
+                  {project.featured && (
+                    <span className="featured-label">FEATURED</span>
+                  )}
+                  <p className="project-date">{project.date}</p>
+                </div>
 
                 <h3>{project.title}</h3>
 
@@ -108,7 +230,7 @@ function Projects() {
                   rel="noopener noreferrer"
                   className="project-link"
                 >
-                  View on GitHub ↗
+                  View project <span aria-hidden="true">↗</span>
                 </a>
               </div>
             </article>
@@ -120,3 +242,4 @@ function Projects() {
 }
 
 export default Projects;
+
